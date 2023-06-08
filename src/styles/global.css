@@ -66,10 +66,7 @@ a:hover::after {
 	transition-delay: 0ms;
 }
 
-nav ul {
-	margin: 0;
-	padding: 0;
+.nav-links {
 	display: flex;
-	list-style: none;
 	gap: 1rem;
 }
