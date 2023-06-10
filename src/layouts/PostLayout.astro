@@ -1,0 +1,70 @@
+---
+import DefaultLayout from "./DefaultLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<DefaultLayout pageTitle={frontmatter.title}>
+	<div class="page__featured-image">
+		<img
+			src={frontmatter.image.url}
+			alt="Featured image background"
+			height="300"
+			class="page__featured-image-bg"
+		/>
+		<img
+			src={frontmatter.image.url}
+			alt={frontmatter.image.alt}
+			height="300"
+			class="page__featured-image-img"
+		/>
+	</div>
+
+	<div class="post__metas">
+		<div>
+			<u>Published on</u>:
+			{frontmatter.pubDate.slice(0, 14)}
+		</div>
+		<div>
+			<u>Written by</u>:
+			{frontmatter.author}
+		</div>
+		<div>
+			<u>Summary</u>:
+			{frontmatter.description}
+		</div>
+		<div>
+			<u>Tags</u>:
+			{frontmatter.tags.map((tag) => <span>{tag} &bullet; </span>)}
+		</div>
+	</div>
+
+	<hr />
+
+	<slot />
+</DefaultLayout>
+
+<style lang="scss">
+	@import "../styles/mixins";
+
+	.page__featured-image {
+		position: relative;
+
+		&-bg {
+			position: absolute;
+			z-index: -1;
+			filter: blur(70px) saturate(1.3);
+			transform: scale(1.5);
+		}
+
+		&-img {
+			object-fit: cover;
+		}
+	}
+
+	.post__metas {
+		@include grid($gap: 2rem);
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		text-wrap: balance;
+	}
+</style>

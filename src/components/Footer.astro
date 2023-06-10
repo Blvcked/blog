@@ -18,10 +18,11 @@ import Social from "./Social.astro";
 	/>
 </footer>
 
-<style>
+<style lang="scss">
+	@import "../styles/mixins.scss";
+
 	footer {
-		display: flex;
-		gap: 1rem;
-		margin-top: 2rem;
+		@include flex;
+		justify-content: flex-end;
 	}
 </style>

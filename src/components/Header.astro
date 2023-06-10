@@ -1,7 +1,19 @@
 ---
 import Navigation from "./Navigation.astro";
+import Burger from "./Burger.astro";
 ---
 
 <header>
 	<Navigation />
+	<Burger />
 </header>
+
+<style lang="scss">
+	@import "../styles/mixins";
+
+	header {
+		@include flex($gap: 2rem);
+		align-items: center;
+		justify-content: flex-end;
+	}
+</style>

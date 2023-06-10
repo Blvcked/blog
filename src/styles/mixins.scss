@@ -1,0 +1,37 @@
+@mixin hide {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+@mixin show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+@mixin bigger-hitbox($x: 2, $y: 2, $debug: false) {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		transform: scale($x, $y);
+
+		@if ($debug) {
+			background-color: rgba(#f00, 30%);
+		}
+	}
+}
+
+@mixin flex($gap: 1rem) {
+	display: flex;
+	gap: $gap;
+}
+
+@mixin grid($gap: 1rem) {
+	display: grid;
+	gap: $gap;
+}

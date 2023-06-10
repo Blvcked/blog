@@ -2,4 +2,21 @@
 	<a href="/">Home</a>
 	<a href="/about/">About</a>
 	<a href="/blog/">Blog</a>
+	<a href="/blog/post-1/">Post 1</a>
+	<a href="/blog/post-2/">Post 2</a>
+	<a href="/blog/post-3/">Post 3</a>
 </nav>
+
+<style lang="scss">
+	@import "../styles/mixins";
+
+	.nav-links {
+		@include flex;
+		@include hide;
+		transition: opacity var(--bezier--900), visibility var(--bezier--900);
+
+		&.show {
+			@include show;
+		}
+	}
+</style>

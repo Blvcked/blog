@@ -1,0 +1,29 @@
+<button
+	class="burger"
+	type="button"
+	aria-label="Toggle navigation"
+>
+	<span class="burger__line"></span>
+	<span class="burger__line"></span>
+</button>
+
+<style lang="scss">
+	@import "../styles/mixins";
+
+	.burger {
+		background: unset;
+		border: unset;
+		padding: unset;
+		cursor: pointer;
+
+		@include grid($gap: 0.375rem);
+
+		width: 40px;
+		color: #fff;
+		@include bigger-hitbox(1.5, 3);
+
+		&__line {
+			border-top: 1px solid;
+		}
+	}
+</style>

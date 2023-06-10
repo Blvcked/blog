@@ -1,34 +1,13 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 const pageTitle = "Home";
+
+const pageContent =
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Ut sem viverra aliquet eget. Quis hendrerit dolor magna eget est lorem ipsum dolor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Nibh cras pulvinar mattis nunc. Ac tortor dignissim convallis aenean et tortor. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Diam phasellus vestibulum lorem sed. Nunc eget lorem dolor sed viverra ipsum nunc aliquet. Purus sit amet volutpat consequat mauris nunc congue. Amet facilisis magna etiam tempor orci eu lobortis elementum. Consectetur purus ut faucibus pulvinar elementum integer";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/favicon.svg"
-		/>
-		<meta
-			name="viewport"
-			content="width=device-width"
-		/>
-		<meta
-			name="generator"
-			content={Astro.generator}
-		/>
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<Header />
-
-		<h1>{pageTitle}</h1>
-		
-		<Footer />
-	</body>
-</html>
+<DefaultLayout pageTitle={pageTitle}>
+	<section>
+		<p>{pageContent}</p>
+	</section>
+</DefaultLayout>
