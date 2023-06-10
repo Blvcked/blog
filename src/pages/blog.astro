@@ -1,5 +1,7 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import PostCard from "../components/PostCard.astro";
+const allPosts = await Astro.glob("./blog/*.md");
 const pageTitle = "Blog";
 
 const pageContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
@@ -8,5 +10,26 @@ const pageContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 <DefaultLayout pageTitle={pageTitle}>
 	<section>
 		<p>{pageContent}</p>
+		<div class="posts">
+			{
+				allPosts.map((post) => (
+					<PostCard
+						url={post.url}
+						title={post.frontmatter.title}
+						image={post.frontmatter.image.url}
+						imageAlt={post.frontmatter.image.alt}
+					/>
+				))
+			}
+		</div>
 	</section>
 </DefaultLayout>
+
+<style lang="scss">
+	@import "../styles/mixins.scss";
+
+	.posts {
+		@include grid;
+		grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+	}
+</style>

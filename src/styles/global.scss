@@ -5,6 +5,8 @@
 	--bezier--300: 300ms var(--bezier-curve);
 	--bezier--600: 600ms var(--bezier-curve);
 	--bezier--900: 900ms var(--bezier-curve);
+
+	--border-radius: 0.5rem;
 }
 
 *,
@@ -54,6 +56,9 @@ video {
 a {
 	color: #fff;
 	text-decoration: none;
+}
+
+.fancy-link {
 	position: relative;
 	padding-bottom: 0.1em;
 

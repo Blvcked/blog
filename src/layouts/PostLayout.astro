@@ -7,16 +7,16 @@ const { frontmatter } = Astro.props;
 <DefaultLayout pageTitle={frontmatter.title}>
 	<div class="page__featured-image">
 		<img
+			class="page__featured-image-bg"
 			src={frontmatter.image.url}
 			alt="Featured image background"
 			height="300"
-			class="page__featured-image-bg"
 		/>
 		<img
+			class="page__featured-image-img"
 			src={frontmatter.image.url}
 			alt={frontmatter.image.alt}
 			height="300"
-			class="page__featured-image-img"
 		/>
 	</div>
 

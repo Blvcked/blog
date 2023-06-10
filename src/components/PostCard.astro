@@ -1,0 +1,58 @@
+---
+const { url, title, image, imageAlt } = Astro.props;
+---
+
+<div class="post">
+	<a
+		class="post__link"
+		href={url}
+	>
+		<img
+			class="post__img"
+			src={image}
+			alt={imageAlt}
+			width="200"
+		/>
+		<span class="post__title">{title}</span>
+	</a>
+</div>
+
+<style lang="scss">
+	.post {
+		border-radius: var(--border-radius);
+		overflow: hidden;
+		position: relative;
+
+		&__link {
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+		}
+
+		&__title {
+			position: absolute;
+			padding: 0.5rem 1rem;
+			border-top-left-radius: var(--border-radius);
+			background-color: rgba(#000, 10%);
+			backdrop-filter: blur(14px) saturate(130%);
+			transition: letter-spacing var(--bezier--900);
+		}
+
+		&__img {
+			aspect-ratio: 20/10;
+			object-fit: cover;
+			transform-origin: bottom right;
+			transition: transform var(--bezier--900);
+		}
+
+		&:hover {
+			.post__title {
+				letter-spacing: 0.05em;
+			}
+
+			.post__img {
+				transform: scale(110%);
+			}
+		}
+	}
+</style>
